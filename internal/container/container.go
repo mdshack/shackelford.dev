@@ -16,10 +16,12 @@ type Container struct {
 }
 
 func New(assets *embed.FS) *Container {
+	cfg := config.New()
+
 	return &Container{
 		Router: mux.NewRouter(),
-		// DB:     database.New(),
-		Config: config.New(),
+		// DB:     database.New(cfg),
+		Config: cfg,
 		Assets: assets,
 	}
 }

@@ -1,9 +1,11 @@
 package database
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/jmoiron/sqlx"
+	"github.com/mdshack/shackelford.dev/internal/config"
 	"github.com/mdshack/shackelford.dev/pkg/database/models/post"
 )
 
@@ -13,8 +15,17 @@ type Database struct {
 	Posts *post.Post
 }
 
-func New() *Database {
-	db, err := sqlx.Connect("postgres", "user=postgres password=postgres dbname=postgres sslmode=disable")
+func New(cfg *config.Config) *Database {
+	db, err := sqlx.Connect(
+		"postgres",
+		fmt.Sprintf(
+			"host=%s user=%s password=%s dbname=%s sslmode=disable",
+			cfg.Database.Host,
+			cfg.Database.Username,
+			cfg.Database.Password,
+			cfg.Database.Database,
+		),
+	)
 	if err != nil {
 		log.Fatalln(err)
 	}
