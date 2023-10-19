@@ -11,8 +11,9 @@ WORKDIR /app
 RUN npx tailwindcss -c ./assets/tailwind.config.js -i ./assets/src/css/app.css -o ./assets/dist/css/app.css
 
 # TODO: actual asset build step (optimize images, minify js, etc...)
-RUN rm -rf ./assets/dist/images 2> /dev/null; cp -rf ./assets/src/images ./assets/dist/images
-RUN rm -rf ./assets/dist/js 2> /dev/null; cp -rf ./assets/src/js ./assets/dist/js
+RUN rm -rf ./assets/dist/images ./assets/dist/js 2> /dev/null || true
+RUN cp -rf ./assets/src/images ./assets/dist/images
+RUN cp -rf ./assets/src/js ./assets/dist/js
 
 FROM golang:1.20
 
