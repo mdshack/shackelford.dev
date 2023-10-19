@@ -1,0 +1,22 @@
+package layouts
+
+import (
+	"strings"
+)
+
+templ Default(pageName string) {
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="/css/app.css"></link>
+    <title>{ strings.Title(pageName) } | Micah Shackelford</title>
+</head>
+
+<body class="bg-zinc-900 text-white max-w-xl mx-auto px-6">
+    { children... }
+</body>
+</html>
+}

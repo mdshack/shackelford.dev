@@ -1,0 +1,33 @@
+package partials
+
+type link struct{
+    Name, Href string
+}
+
+var links []link 
+
+func init() {
+    links = []link{
+        {Name: "home", Href: "/"},
+        {Name: "blog", Href: "/blog"},
+        {Name: "guestbook", Href: "/guestbook"},
+    }
+}
+
+templ Navigation(active string) {
+<header class="flex items-center justify-between py-16">
+    <nav class="space-x-6">
+        for _, navLink := range links {
+        <a 
+            href={ templ.URL(navLink.Href) }
+            if active == navLink.Name {
+                class="font-bold"
+            } else {
+                class="text-zinc-500 hover:text-white transition"
+            }>
+            {navLink.Name}
+        </a>
+        }
+    </nav>
+</header>
+}

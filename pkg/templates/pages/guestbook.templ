@@ -1,0 +1,19 @@
+package pages
+
+import (
+    "github.com/mdshack/shackelford.dev/pkg/templates/layouts"
+	"github.com/mdshack/shackelford.dev/pkg/templates/layouts/partials"
+)
+
+templ Guestbook() {
+@layouts.Default("guestbook") {
+    @partials.Navigation("guestbook")
+    <main>
+        <div class="space-y-10">
+            <h3 class="text-3xl tracking-wide font-bold text-zinc-500">
+                coming soon...
+            </h3>
+        </div>
+    </main>
+}
+}

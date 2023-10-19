@@ -1,0 +1,26 @@
+package partials
+
+templ Posts(showAll bool) {
+<section>
+    <h3 class="text-3xl tracking-wide font-bold text-zinc-500">
+        posts
+    </h3>
+
+    <div class="mt-4 space-y-4">
+        <a href="#" class="flex flex-col rounded-lg hover:bg-zinc-800 p-5 border border-zinc-800 text-zinc-500 hover:text-zinc-100 transition">
+            <h5 class="font-semibold mb-2">Writing my personal site in Go</h5>
+            <p class="text-sm">January 21, 2024 • 2 minute read</p>
+        </a>
+
+        <a href="#" class="flex flex-col rounded-lg hover:bg-zinc-800 p-5 border border-zinc-800 text-zinc-500 hover:text-zinc-100 transition">
+            <h5 class="font-semibold mb-2">Writing my personal site in Go</h5>
+            <p class="text-sm">January 21, 2024 • 2 minute read</p>
+        </a>
+        if ! showAll {
+        <div class="flex justify-center">
+            <a href={templ.URL("/blog")} class="hover:underline mt-4">See all</a>
+        </div>
+        }
+    </div>
+</section>
+}

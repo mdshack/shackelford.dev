@@ -1,0 +1,26 @@
+package pages
+
+import (
+    "github.com/mdshack/shackelford.dev/pkg/templates/layouts"
+    "github.com/mdshack/shackelford.dev/pkg/templates/pages/partials"
+	layoutPartials "github.com/mdshack/shackelford.dev/pkg/templates/layouts/partials"
+)
+
+templ Home() {
+@layouts.Default("home") {
+    @layoutPartials.Navigation("home")
+    <main>
+        <div class="space-y-10 pb-16">
+            @partials.Banner()
+
+            @partials.About()
+
+            @partials.Experience()
+
+            // @partials.Posts(false)
+
+            @partials.Links()
+        </div>
+    </main>
+}
+}

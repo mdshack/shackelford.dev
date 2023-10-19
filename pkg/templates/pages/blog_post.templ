@@ -1,0 +1,18 @@
+package pages
+
+import (
+    "github.com/mdshack/shackelford.dev/pkg/database/models/post"
+    "github.com/mdshack/shackelford.dev/pkg/templates/layouts"
+	"github.com/mdshack/shackelford.dev/pkg/templates/layouts/partials"
+)
+
+templ BlogPost(post post.Model) {
+@layouts.Default(post.Title) {
+    @partials.Navigation("blog")
+    <main>
+        <div class="space-y-10">
+            {post.Contents}
+        </div>
+    </main>
+}
+}

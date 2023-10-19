@@ -1,0 +1,46 @@
+package partials
+
+type link struct{
+    Type, Href, Label string
+}
+
+var links []link
+
+func init() {
+    links = []link{
+        {
+            Type: "GitHub", 
+            Href: "http://github.com/mdshack", 
+            Label: "@mdshack",
+        },
+        {
+            Type: "LinkedIn", 
+            Href: "https://www.linkedin.com/in/micahdshackelford/", 
+            Label: "@micahdshackelford",
+        },
+    }
+}
+
+templ Links() {
+<section>
+    <h3 class="text-3xl tracking-wide font-bold text-zinc-500">
+        links
+    </h3>
+
+    <div class="mt-4 space-y-4">
+        <dl class="grid grid-cols-4 gap-4">
+            for _, link := range links {
+            <dt class="text-zinc-500 col-span-4 sm:col-span-1">{link.Type}</dt>
+            <dd class="col-span-4 sm:col-span-3 space-y-2">
+                <a 
+                    href={templ.URL(link.Href)}
+                    target="_blank"
+                    class="hover:underline font-semibold">
+                    {link.Label}
+                </a>
+            </dd>
+            }
+        </dl>
+    </div>
+</section>
+}
