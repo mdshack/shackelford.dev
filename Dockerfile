@@ -20,7 +20,7 @@ FROM golang:1.21
 WORKDIR /app
 EXPOSE 8000
 
-RUN go install github.com/a-h/templ/cmd/templ@latest
+RUN go install github.com/a-h/templ/cmd/templ@v0.2.408
 
 COPY . .
 COPY --from=assets /app/assets /app/assets
