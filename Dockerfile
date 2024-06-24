@@ -15,7 +15,7 @@ RUN rm -rf ./assets/dist/images ./assets/dist/js 2> /dev/null || true
 RUN cp -rf ./assets/src/images ./assets/dist/images
 RUN cp -rf ./assets/src/js ./assets/dist/js
 
-FROM golang:1.20
+FROM golang:1.21
 
 WORKDIR /app
 EXPOSE 8000
